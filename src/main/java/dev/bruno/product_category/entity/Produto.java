@@ -10,9 +10,10 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
+    @Column(name = "preco",  nullable = false)
     private Double preco;
 
     @ManyToOne
