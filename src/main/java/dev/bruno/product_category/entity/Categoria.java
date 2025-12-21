@@ -1,8 +1,7 @@
 package dev.bruno.product_category.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -13,18 +12,19 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome")
+    @Column(name = "nome",  nullable = false,  unique = true)
     private String nome;
 
     @OneToMany(mappedBy = "categoria")
-    @JsonIgnore
+    @JsonManagedReference
     private List<Produto> produtos;
 
     public Categoria() {}
 
-    public Categoria(Long id, String nome) {
+    public Categoria(Long id, String nome, List<Produto> produtos) {
         this.id = id;
         this.nome = nome;
+        this.produtos = produtos;
     }
 
     public Long getId() {
