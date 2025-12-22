@@ -24,6 +24,12 @@ public class Produto {
 
     public Produto() {}
 
+    public Produto(String nome, Double preco, Categoria categoria) {
+        this.nome = nome;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
+
     public Produto(Long id, String nome, Double preco, Categoria categoria) {
         this.id = id;
         this.nome = nome;
